@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>python括号匹配 · GitBook</title>
+        <title>git 配置 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="digest-auth.html" />
+    <link rel="next" href="git-fetch-error.html" />
     
     
-    <link rel="prev" href="../shell/website.html" />
+    <link rel="prev" href="../gdb/gdb-vector.html" />
     
 
     </head>
@@ -154,9 +154,9 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="parentheses.html">
+        <li class="chapter " data-level="2.1" data-path="../python/parentheses.html">
             
-                <a href="parentheses.html">
+                <a href="../python/parentheses.html">
             
                     
                     python括号匹配
@@ -167,9 +167,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="digest-auth.html">
+        <li class="chapter " data-level="2.2" data-path="../python/digest-auth.html">
             
-                <a href="digest-auth.html">
+                <a href="../python/digest-auth.html">
             
                     
                     摘要认证
@@ -180,9 +180,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="python-tools.html">
+        <li class="chapter " data-level="2.3" data-path="../python/python-tools.html">
             
-                <a href="python-tools.html">
+                <a href="../python/python-tools.html">
             
                     
                     python工具(更新中...)
@@ -240,9 +240,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../git/git-config.html">
+        <li class="chapter active" data-level="5.1" data-path="git-config.html">
             
-                <a href="../git/git-config.html">
+                <a href="git-config.html">
             
                     
                     git 配置
@@ -253,9 +253,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../git/git-fetch-error.html">
+        <li class="chapter " data-level="5.2" data-path="git-fetch-error.html">
             
-                <a href="../git/git-fetch-error.html">
+                <a href="git-fetch-error.html">
             
                     
                     git fetch error
@@ -266,9 +266,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../git/git-email-error.html">
+        <li class="chapter " data-level="5.3" data-path="git-email-error.html">
             
-                <a href="../git/git-email-error.html">
+                <a href="git-email-error.html">
             
                     
                     git email error
@@ -329,7 +329,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >python括号匹配</a>
+        <a href=".." >git 配置</a>
     </h1>
 </div>
 
@@ -341,15 +341,68 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="python&#x62EC;&#x53F7;&#x5339;&#x914D;">python&#x62EC;&#x53F7;&#x5339;&#x914D;</h2>
-<h3 id="python-&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x5E76;&#x5217;&#x6392;&#x8981;&#x52A0;">python &#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x5E76;&#x5217;&#x6392;&#x8981;&#x52A0;(?:)</h3>
-<pre><code>pattern = re.compile(r&apos;((?:[0-9a-f]{1,4})(?:\:[0-9a-f]{1,4}){1,7})&apos;)                                     
-pattern = re.compile(r&apos;(([0-9a-f]{1,4})(\:[0-9a-f]{1,4}){1,7})&apos;)
-
-line = &quot;include = 2001:b8:1:2:20b:82ff:fe67:4bf&quot;  
-match = pattern.findall(line)                                                                             
-print match
-</code></pre><p>&#x7B2C;&#x4E00;&#x4E2A;pattern&#x8FD4;&#x56DE;<br>[&apos;2001:b8:1:2:20b:82ff:fe67:4bf&apos;]<br>&#x7B2C;&#x4E8C;&#x4E2A;pattern&#x8FD4;&#x56DE;<br>[(&apos;2001:b8:1:2:20b:82ff:fe67:4bf&apos;, &apos;2001&apos;, &apos;:4bf&apos;)]</p>
+                                <h2 id="git-&#x914D;&#x7F6E;">git &#x914D;&#x7F6E;</h2>
+<h4 id="git-&#x76EE;&#x5F55;&#x521B;&#x5EFA;">git &#x76EE;&#x5F55;&#x521B;&#x5EFA;</h4>
+<p>&#x5728;&#x672C;&#x5730;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x4F60;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x4E86;&#xFF1A;  </p>
+<pre><code>mkdir git-usage&#xFF08;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF09;  
+cd git-usage&#xFF08;&#x8FDB;&#x5165;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF09; 
+git init&#xFF08;Git&#x521D;&#x59CB;&#x5316;&#xFF09;   
+touch README&#xFF08;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;README&#x6587;&#x4EF6;&#xFF09;    
+git add README&#xFF08;&#x589E;&#x52A0;&#x8BE5;&#x6587;&#x4EF6;&#x5230;&#x7D22;&#x5F15;&#xFF09;    
+git commit -m &apos;first commit&apos;&#xFF08;&#x672C;&#x5730;&#x63D0;&#x4EA4;&#xFF09;    
+git remote add origin git@github.com:phoenixtoday/git-usage.git&#xFF08;&#x589E;&#x52A0;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7801;&#x5E93;&#x5730;&#x5740;&#xFF09;    
+git push -u origin master&#xFF08;&#x5C06;&#x672C;&#x5730;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF09;
+</code></pre><h4 id="&#x547D;&#x4EE4;&#x884C;&#x914D;&#x7F6E;">&#x547D;&#x4EE4;&#x884C;&#x914D;&#x7F6E;</h4>
+<ul>
+<li><p>&#x914D;&#x7F6E;vim&#x7F16;&#x8F91;&#x5668;</p>
+<pre><code>  git config --global core.editor vim
+</code></pre></li>
+<li><p>&#x914D;&#x7F6E;&#x7528;&#x6237;&#x540D;&#xFF0C;email</p>
+<pre><code>  $ git config --global user.name jklou
+  $ git config --global user.email jklou@email.com
+</code></pre></li>
+<li><p>&#x914D;&#x7F6E;commit&#x6A21;&#x677F;</p>
+<pre><code>  git config --global commit.template /home/jklou/project/CommitTemplate
+</code></pre></li>
+<li><p>alias &#x914D;&#x7F6E; &#x7F29;&#x5199;</p>
+<pre><code>  git config --global alias.st status
+</code></pre></li>
+</ul>
+<h4 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;</h4>
+<p>&#x4E00;&#x822C;git&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F1A;&#x5B58;&#x5728; ~/.gitconfig &#x4E2D;  </p>
+<ul>
+<li><p>&#x6211;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>  [core]                                                                                                                                                                                                  
+      editor = vim 
+  [commit]
+      template = /home/jklou/Todo/code/CommitTemplate
+  [user]
+      email = jklou@email.com
+      name = jklou
+  [alias]
+      st = status
+      d = diff
+      co = checkout
+      pl = pull
+      b = branch
+      com = commit
+      coma = commit --amend
+      lp = log -p
+      pm = push origin HEAD:refs/for/master
+  [merge]
+      tool = vimdiff
+</code></pre></li>
+</ul>
+<h4 id="&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x5E93;&#x66F4;&#x65B0;">&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x5E93;&#x66F4;&#x65B0;</h4>
+<p>&#x4FEE;&#x6539;&#x591A;&#x4E2A;git&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;,&#x5373;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x5E93;&#x66F4;&#x65B0;<br>&#x76EE;&#x524D;&#x662F;&#x5728;github&#x4E0B;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7248;&#x672C;&#x5E93;&#xFF0C;&#x5373;&#x540C;&#x6B65;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;<br>&#x7F16;&#x8F91;.git &#x4E0B;&#x7684;config</p>
+<pre><code>[remote &quot;origin&quot;]
+        url = https://username@github.com/username/project/
+        url = http://username@192.168.89.1:8000/project
+        fetch = +refs/heads/*:refs/remotes/origin/*
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x4E24;&#x6B21;&#x5BC6;&#x7801;<br>&#x5728;git push&#x540E;&#x4F1A;&#x663E;&#x793A;</p>
+<pre><code>&#x2018;No refs in common and none specified&#x2019;doing nothing
+</code></pre><p>&#x8F93;&#x5165;<code>git push origin master</code>&#x5373;&#x53EF;&#x89E3;&#x51B3;&#x95EE;&#x9898;</p>
+<p>&#x3000;</p>
 
                                 
                                 </section>
@@ -361,12 +414,12 @@ print match
 
             
                 
-                <a href="../shell/website.html" class="navigation navigation-prev " aria-label="Previous page: 有用的网站">
+                <a href="../gdb/gdb-vector.html" class="navigation navigation-prev " aria-label="Previous page: gdb 调试 vector">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="digest-auth.html" class="navigation navigation-next " aria-label="Next page: 摘要认证">
+                <a href="git-fetch-error.html" class="navigation navigation-next " aria-label="Next page: git fetch error">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -377,7 +430,7 @@ print match
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"python括号匹配","level":"2.1","depth":1,"next":{"title":"摘要认证","level":"2.2","depth":1,"path":"python/digest-auth.md","ref":"python/digest-auth.md","articles":[]},"previous":{"title":"有用的网站","level":"1.4","depth":1,"path":"shell/website.md","ref":"shell/website.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"python/parentheses.md","mtime":"2018-10-29T02:38:59.884Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"git 配置","level":"5.1","depth":1,"next":{"title":"git fetch error","level":"5.2","depth":1,"path":"git/git-fetch-error.md","ref":"git/git-fetch-error.md","articles":[]},"previous":{"title":"gdb 调试 vector","level":"4.1","depth":1,"path":"gdb/gdb-vector.md","ref":"gdb/gdb-vector.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"git/git-config.md","mtime":"2018-10-29T07:37:25.982Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

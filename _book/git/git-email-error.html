@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>python括号匹配 · GitBook</title>
+        <title>git email error · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="digest-auth.html" />
+    <link rel="next" href="../asterisk/compare-ast-fs.html" />
     
     
-    <link rel="prev" href="../shell/website.html" />
+    <link rel="prev" href="git-fetch-error.html" />
     
 
     </head>
@@ -154,9 +154,9 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="parentheses.html">
+        <li class="chapter " data-level="2.1" data-path="../python/parentheses.html">
             
-                <a href="parentheses.html">
+                <a href="../python/parentheses.html">
             
                     
                     python括号匹配
@@ -167,9 +167,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="digest-auth.html">
+        <li class="chapter " data-level="2.2" data-path="../python/digest-auth.html">
             
-                <a href="digest-auth.html">
+                <a href="../python/digest-auth.html">
             
                     
                     摘要认证
@@ -180,9 +180,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="python-tools.html">
+        <li class="chapter " data-level="2.3" data-path="../python/python-tools.html">
             
-                <a href="python-tools.html">
+                <a href="../python/python-tools.html">
             
                     
                     python工具(更新中...)
@@ -240,9 +240,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../git/git-config.html">
+        <li class="chapter " data-level="5.1" data-path="git-config.html">
             
-                <a href="../git/git-config.html">
+                <a href="git-config.html">
             
                     
                     git 配置
@@ -253,9 +253,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../git/git-fetch-error.html">
+        <li class="chapter " data-level="5.2" data-path="git-fetch-error.html">
             
-                <a href="../git/git-fetch-error.html">
+                <a href="git-fetch-error.html">
             
                     
                     git fetch error
@@ -266,9 +266,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../git/git-email-error.html">
+        <li class="chapter active" data-level="5.3" data-path="git-email-error.html">
             
-                <a href="../git/git-email-error.html">
+                <a href="git-email-error.html">
             
                     
                     git email error
@@ -329,7 +329,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >python括号匹配</a>
+        <a href=".." >git email error</a>
     </h1>
 </div>
 
@@ -341,15 +341,23 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="python&#x62EC;&#x53F7;&#x5339;&#x914D;">python&#x62EC;&#x53F7;&#x5339;&#x914D;</h2>
-<h3 id="python-&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x5E76;&#x5217;&#x6392;&#x8981;&#x52A0;">python &#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x5E76;&#x5217;&#x6392;&#x8981;&#x52A0;(?:)</h3>
-<pre><code>pattern = re.compile(r&apos;((?:[0-9a-f]{1,4})(?:\:[0-9a-f]{1,4}){1,7})&apos;)                                     
-pattern = re.compile(r&apos;(([0-9a-f]{1,4})(\:[0-9a-f]{1,4}){1,7})&apos;)
-
-line = &quot;include = 2001:b8:1:2:20b:82ff:fe67:4bf&quot;  
-match = pattern.findall(line)                                                                             
-print match
-</code></pre><p>&#x7B2C;&#x4E00;&#x4E2A;pattern&#x8FD4;&#x56DE;<br>[&apos;2001:b8:1:2:20b:82ff:fe67:4bf&apos;]<br>&#x7B2C;&#x4E8C;&#x4E2A;pattern&#x8FD4;&#x56DE;<br>[(&apos;2001:b8:1:2:20b:82ff:fe67:4bf&apos;, &apos;2001&apos;, &apos;:4bf&apos;)]</p>
+                                <h2 id="git-email-error">Git email error</h2>
+<ul>
+<li><p>&#x95EE;&#x9898;&#x73B0;&#x8C61;&#xFF1A;</p>
+<pre><code>  remote: ERROR:  In commit 024c0bd88da87274f956a10dfa6b41e8c69ebd04
+  remote: ERROR:  author email address xxxxx@xx.com
+  remote: ERROR:  does not match your user account.
+</code></pre></li>
+<li><p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#xFF08;1&#xFF09;git  config user.email (email&#x5730;&#x5740;)</li>
+<li>&#xFF08;2&#xFF09;git checkout -b aaa&#xFF08;&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x88AB;&#x5360;&#xFF0C;&#x968F;&#x4FBF;&#x518D;&#x6362;&#x4E00;&#x4E2A;&#xFF09;<pre><code>   git branch -D master
+   git checkout --track origin/master
+</code></pre></li>
+<li>&#xFF08;3&#xFF09;git push xxx&#x6B64;&#x65F6;&#x5C31;&#x6210;&#x529F;&#x4E86;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -361,12 +369,12 @@ print match
 
             
                 
-                <a href="../shell/website.html" class="navigation navigation-prev " aria-label="Previous page: 有用的网站">
+                <a href="git-fetch-error.html" class="navigation navigation-prev " aria-label="Previous page: git fetch error">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="digest-auth.html" class="navigation navigation-next " aria-label="Next page: 摘要认证">
+                <a href="../asterisk/compare-ast-fs.html" class="navigation navigation-next " aria-label="Next page: 对比asterisk 和 freeswitch">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -377,7 +385,7 @@ print match
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"python括号匹配","level":"2.1","depth":1,"next":{"title":"摘要认证","level":"2.2","depth":1,"path":"python/digest-auth.md","ref":"python/digest-auth.md","articles":[]},"previous":{"title":"有用的网站","level":"1.4","depth":1,"path":"shell/website.md","ref":"shell/website.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"python/parentheses.md","mtime":"2018-10-29T02:38:59.884Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"git email error","level":"5.3","depth":1,"next":{"title":"对比asterisk 和 freeswitch","level":"6.1","depth":1,"path":"asterisk/compare-ast-fs.md","ref":"asterisk/compare-ast-fs.md","articles":[]},"previous":{"title":"git fetch error","level":"5.2","depth":1,"path":"git/git-fetch-error.md","ref":"git/git-fetch-error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"git/git-email-error.md","mtime":"2018-10-29T07:27:19.284Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

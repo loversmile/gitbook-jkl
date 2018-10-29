@@ -1,0 +1,738 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>对比asterisk 和 freeswitch · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="水泡泡">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../git/git-email-error.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">shell</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../shell/shell-color.html">
+            
+                <a href="../shell/shell-color.html">
+            
+                    
+                    shell文本颜色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../shell/shell-test.html">
+            
+                <a href="../shell/shell-test.html">
+            
+                    
+                    Linux shell 的 test 命令用法详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../shell/website.html">
+            
+                <a href="../shell/website.html">
+            
+                    
+                    有用的网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">python</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../python/parentheses.html">
+            
+                <a href="../python/parentheses.html">
+            
+                    
+                    python括号匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../python/digest-auth.html">
+            
+                <a href="../python/digest-auth.html">
+            
+                    
+                    摘要认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../python/python-tools.html">
+            
+                <a href="../python/python-tools.html">
+            
+                    
+                    python工具(更新中...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SIP</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../SIP/rport.html">
+            
+                <a href="../SIP/rport.html">
+            
+                    
+                    rport
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">GDB</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../gdb/gdb-vector.html">
+            
+                <a href="../gdb/gdb-vector.html">
+            
+                    
+                    gdb 调试 vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">git</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../git/git-config.html">
+            
+                <a href="../git/git-config.html">
+            
+                    
+                    git 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../git/git-fetch-error.html">
+            
+                <a href="../git/git-fetch-error.html">
+            
+                    
+                    git fetch error
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../git/git-email-error.html">
+            
+                <a href="../git/git-email-error.html">
+            
+                    
+                    git email error
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Asterisk</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="compare-ast-fs.html">
+            
+                <a href="compare-ast-fs.html">
+            
+                    
+                    对比asterisk 和 freeswitch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >对比asterisk 和 freeswitch</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="asterisk-to-freeswitch-rosetta-stone">Asterisk to FreeSWITCH Rosetta Stone</h2>
+<p>While FreeSWITCH is not a drop-in replacement for Asterisk, it does many of the same things that Asterisk does. This page is an attempt to help those familiar with Asterisk to leverage that knowledge and quickly locate that which is equivalent or analogous in FreeSWITCH. In most cases there isn&apos;t a direct, one-to-one translation, but rather similarities. For example, the &quot;equivalent&quot; of extensions.conf is (mostly) conf/dialplan/default.xml; but there are also features.xml, public.xml and /conf/dialplan/extensions/*xml.</p>
+<ul>
+<li><strong>If anyone has thoughts on this then by all means add what you know.</strong></li>
+</ul>
+<h3 id="configuration-files">Configuration Files</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Asterisk</th>
+<th style="text-align:left">FreeSWITCH </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> extensions.conf</td>
+<td style="text-align:left">conf/dialplan/default.xml; also features.xml, public.xml, extensions/*xml </td>
+</tr>
+<tr>
+<td style="text-align:left"> logger.conf</td>
+<td style="text-align:left">mod_console and mod_syslog </td>
+</tr>
+<tr>
+<td style="text-align:left"> rtp.conf</td>
+<td style="text-align:left">conf/autoload_configs/switch.conf.xml </td>
+</tr>
+<tr>
+<td style="text-align:left"> sip.conf</td>
+<td style="text-align:left">conf/directory/*.xml (see mod_sofia) </td>
+</tr>
+<tr>
+<td style="text-align:left"> voicemail.conf</td>
+<td style="text-align:left">mod_voicemail - voicemail.conf.xml, conf/directory/*xml </td>
+</tr>
+<tr>
+<td style="text-align:left"> zapata.conf</td>
+<td style="text-align:left">conf/autoload_configs/openzap.conf.xml </td>
+</tr>
+<tr>
+<td style="text-align:left"> Realtime</td>
+<td style="text-align:left">Use mod_xml_curl to fetch the user and/or dialplan in XML,mod_ldap for LDAP backend </td>
+</tr>
+</tbody>
+</table>
+<h3 id="console-commands">Console Commands</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Asterisk Console</th>
+<th style="text-align:left">FreeSWITCH Fs cli </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"> sip show peers/sip show registry</td>
+<td style="text-align:left">sofia status profile internal  </td>
+</tr>
+<tr>
+<td style="text-align:left"> core set verbose 9</td>
+<td style="text-align:left">/log 7 </td>
+</tr>
+<tr>
+<td style="text-align:left"> core set debug 9</td>
+<td style="text-align:left">/debug 7 </td>
+</tr>
+<tr>
+<td style="text-align:left"> core show channels</td>
+<td style="text-align:left">show channels / show calls </td>
+</tr>
+<tr>
+<td style="text-align:left"> reload</td>
+<td style="text-align:left">reloadxml </td>
+</tr>
+<tr>
+<td style="text-align:left"> hangup request <channel></channel></td>
+<td style="text-align:left">uuid_kill <uuid> </uuid></td>
+</tr>
+<tr>
+<td style="text-align:left"> sip reload</td>
+<td style="text-align:left">sofia profile internal rescan </td>
+</tr>
+<tr>
+<td style="text-align:left"> sip set debug on</td>
+<td style="text-align:left">sofia global siptrace on <br> sofia global debug (presence|sla|none) <br> sofia loglevel all [0-9]</td>
+</tr>
+<tr>
+<td style="text-align:left"> sip set debug (ip|peer)</td>
+<td style="text-align:left">sofia profile (internal|external) siptrace on </td>
+</tr>
+<tr>
+<td style="text-align:left"> module load app_queue.so</td>
+<td style="text-align:left">load mod_callcenter </td>
+</tr>
+<tr>
+<td style="text-align:left"> core show uptime</td>
+<td style="text-align:left">status </td>
+</tr>
+<tr>
+<td style="text-align:left"> core show version</td>
+<td style="text-align:left">version </td>
+</tr>
+<tr>
+<td style="text-align:left"> console dial 1000</td>
+<td style="text-align:left">pa call 1000 (see mod_portaudio) </td>
+</tr>
+</tbody>
+</table>
+<h3 id="miscellaneous">Miscellaneous</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Asterisk</th>
+<th style="text-align:left">FreeSWITCH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AMI</td>
+<td style="text-align:left">mod_event_socket</td>
+</tr>
+<tr>
+<td style="text-align:left">asterisk -r</td>
+<td style="text-align:left">fs_cli</td>
+</tr>
+<tr>
+<td style="text-align:left">asterisk -rx &quot;command&quot;</td>
+<td style="text-align:left">fs_cli -x &quot;command&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">set verbose <verbosity> in CLI</verbosity></td>
+<td style="text-align:left">console loglevel 0-8 or console loglevel debug</td>
+</tr>
+<tr>
+<td style="text-align:left">chan_local</td>
+<td style="text-align:left">Loopback</td>
+</tr>
+<tr>
+<td style="text-align:left">stop gracefully</td>
+<td style="text-align:left">shutdown or ...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sipconf-params">sip.conf params</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Asterisk</th>
+<th style="text-align:left">FreeSWITCH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">dtmfmode</td>
+<td style="text-align:left">In dialplan: start_dtmf</td>
+</tr>
+</tbody>
+</table>
+<p>Asterisk experts: please add more information</p>
+<h3 id="dialplan">Dialplan</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Asterisk</th>
+<th style="text-align:left">FreeSWITCH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">exten =&gt;</td>
+<td style="text-align:left"><extension></extension> tags</td>
+</tr>
+<tr>
+<td style="text-align:left">include =&gt;</td>
+<td style="text-align:left">Misc._Dialplan_Tools_transfer</td>
+</tr>
+<tr>
+<td style="text-align:left">Realtime</td>
+<td style="text-align:left">Mod xml curl to fetch the dialplan in XML</td>
+</tr>
+<tr>
+<td style="text-align:left">Answer</td>
+<td style="text-align:left">Misc._Dialplan_Tools_answer</td>
+</tr>
+<tr>
+<td style="text-align:left">AGI</td>
+<td style="text-align:left">Event Socket Outbound</td>
+</tr>
+<tr>
+<td style="text-align:left">Background</td>
+<td style="text-align:left">Usually used for:<br>    IVR<br>    play_and_get_digits</td>
+</tr>
+<tr>
+<td style="text-align:left">ChanSpy</td>
+<td style="text-align:left">Misc._Dialplan_Tools_eavesdrop</td>
+</tr>
+<tr>
+<td style="text-align:left">Dial</td>
+<td style="text-align:left">see bridge app</td>
+</tr>
+<tr>
+<td style="text-align:left">Dial(||L(x[:y][:z])</td>
+<td style="text-align:left">Limiting call time, use sched_hangup for the x and sched_broadcast for the :y and :z</td>
+</tr>
+<tr>
+<td style="text-align:left">Dial(SIP/${EXTEN}/sipuser)</td>
+<td style="text-align:left">bridge with data=&quot;{sip_route_uri=sipuser}user/whatever&quot; or data=&quot;sofia/whatever%domain.com^sipuser&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">DumpChan</td>
+<td style="text-align:left">Misc._Dialplan_Tools_info</td>
+</tr>
+<tr>
+<td style="text-align:left">Echo</td>
+<td style="text-align:left">Misc._Dialplan_Tools_echo</td>
+</tr>
+<tr>
+<td style="text-align:left">Goto</td>
+<td style="text-align:left">Misc._Dialplan_Tools_transfer</td>
+</tr>
+<tr>
+<td style="text-align:left">GotoIf</td>
+<td style="text-align:left">Conditions in dialplan (&lt;condition field=&quot;blah&quot; expression=&quot;foo&quot;&gt;)</td>
+</tr>
+<tr>
+<td style="text-align:left">Hangup</td>
+<td style="text-align:left">Misc._Dialplan_Tools_hangup</td>
+</tr>
+<tr>
+<td style="text-align:left">Log</td>
+<td style="text-align:left">Misc._Dialplan_Tools_log</td>
+</tr>
+<tr>
+<td style="text-align:left">Macro/GoSub</td>
+<td style="text-align:left">Misc._Dialplan_Tools_execute_extension</td>
+</tr>
+<tr>
+<td style="text-align:left">MeetMe</td>
+<td style="text-align:left">mod_conference</td>
+</tr>
+<tr>
+<td style="text-align:left">Monitor</td>
+<td style="text-align:left">Misc._Dialplan_Tools_record_session</td>
+</tr>
+<tr>
+<td style="text-align:left">Monitor_exec</td>
+<td style="text-align:left">Channel_Variables#api_hangup_hook</td>
+</tr>
+<tr>
+<td style="text-align:left">MP3Player</td>
+<td style="text-align:left">mod_shout</td>
+</tr>
+<tr>
+<td style="text-align:left">Musiconhold</td>
+<td style="text-align:left">mod_local_stream</td>
+</tr>
+<tr>
+<td style="text-align:left">NoCDR</td>
+<td style="text-align:left">&lt;action application=&quot;set&quot; data=&quot;process_cdr=false&quot;/&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">NoOp</td>
+<td style="text-align:left">Usually used for logging - Misc._Dialplan_Tools_log</td>
+</tr>
+<tr>
+<td style="text-align:left">Park</td>
+<td style="text-align:left">Misc._Dialplan_Tools_park</td>
+</tr>
+<tr>
+<td style="text-align:left">Playback</td>
+<td style="text-align:left">Misc._Dialplan_Tools_playback</td>
+</tr>
+<tr>
+<td style="text-align:left">Playtones</td>
+<td style="text-align:left">Misc._Dialplan_Tools_gentones</td>
+</tr>
+<tr>
+<td style="text-align:left">Progress</td>
+<td style="text-align:left">Misc._Dialplan_Tools_pre_answer</td>
+</tr>
+<tr>
+<td style="text-align:left">Queue</td>
+<td style="text-align:left">mod_fifo</td>
+</tr>
+<tr>
+<td style="text-align:left">Read</td>
+<td style="text-align:left">Misc._Dialplan_Tools_read</td>
+</tr>
+<tr>
+<td style="text-align:left">Record</td>
+<td style="text-align:left">Misc._Dialplan_Tools_record</td>
+</tr>
+<tr>
+<td style="text-align:left">Set</td>
+<td style="text-align:left">Misc._Dialplan_Tools_set</td>
+</tr>
+<tr>
+<td style="text-align:left">SetGlobal</td>
+<td style="text-align:left">Misc._Dialplan_Tools_set_global</td>
+</tr>
+<tr>
+<td style="text-align:left">SIPGetHeader</td>
+<td style="text-align:left">Auto set as variable - ${sip_h_HEADER} where HEADER is the header name</td>
+</tr>
+<tr>
+<td style="text-align:left">SIPAddHeader</td>
+<td style="text-align:left">Set variable ${sip_h_HEADER} where HEADER is the header name you want to send</td>
+</tr>
+<tr>
+<td style="text-align:left">System</td>
+<td style="text-align:left">Misc._Dialplan_Tools_system</td>
+</tr>
+<tr>
+<td style="text-align:left">Transfer</td>
+<td style="text-align:left">Misc._Dialplan_Tools_redirect</td>
+</tr>
+<tr>
+<td style="text-align:left">Wait</td>
+<td style="text-align:left">Misc._Dialplan_Tools_sleep</td>
+</tr>
+<tr>
+<td style="text-align:left">WaitExten</td>
+<td style="text-align:left">Misc._Dialplan_Tools_play_and_get_digits</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../git/git-email-error.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: git email error">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"对比asterisk 和 freeswitch","level":"6.1","depth":1,"previous":{"title":"git email error","level":"5.3","depth":1,"path":"git/git-email-error.md","ref":"git/git-email-error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"asterisk/compare-ast-fs.md","mtime":"2018-10-29T08:28:08.512Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
