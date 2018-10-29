@@ -1,5 +1,8 @@
 # JKL
 
+记录学习工作中的一些知识  
+仅供参考
+
 ## Contribute 方式
 
 1. 安装编译文档 gitbook
