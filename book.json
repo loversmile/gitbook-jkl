@@ -1,0 +1,7 @@
+{
+    "author": "水泡泡",
+    "description": "水泡泡的testbook",
+	"root": "./docs",
+    "plugins": ["etoc","theme-comscore"],
+    "output": "./blog"
+}

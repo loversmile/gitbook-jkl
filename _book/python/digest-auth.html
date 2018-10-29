@@ -1,0 +1,364 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>摘要认证 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="水泡泡">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="python-tools.html" />
+    
+    
+    <link rel="prev" href="parentheses.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">shell</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../shell/shell-color.html">
+            
+                <a href="../shell/shell-color.html">
+            
+                    
+                    shell文本颜色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../shell/shell-test.html">
+            
+                <a href="../shell/shell-test.html">
+            
+                    
+                    Linux shell 的 test 命令用法详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">python</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="parentheses.html">
+            
+                <a href="parentheses.html">
+            
+                    
+                    python括号匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="digest-auth.html">
+            
+                <a href="digest-auth.html">
+            
+                    
+                    摘要认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="python-tools.html">
+            
+                <a href="python-tools.html">
+            
+                    
+                    python工具(更新中...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SIP</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../SIP/rport.html">
+            
+                <a href="../SIP/rport.html">
+            
+                    
+                    rport
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >摘要认证</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6458;&#x8981;&#x8BA4;&#x8BC1;">&#x6458;&#x8981;&#x8BA4;&#x8BC1;</h2>
+<pre><code>
+    import sys
+    import hashlib
+    import ssl
+
+    # &#x6D4B;&#x8BD5;&#x4F7F;&#x7528;&#xFF0C;&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x53C2;&#x6570;
+    def getURLall(url, format, token, data):
+        if format == &apos;&apos; or token == &apos;&apos; or data == &apos;&apos;:
+            print &quot;need format token data&quot;
+            return &apos;&apos;
+        res = url + &apos;/pmsapi?format=&apos; + format + &apos;&amp;token=&apos; + token + &apos;&amp;data=&apos; + data
+        return res
+
+    # &#x8BA1;&#x7B97;md5&#xFF0C;&#x6D4B;&#x8BD5;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#xFF0C;HTTPDigestAuthHandler() &#x51FD;&#x6570;&#x4F1A;&#x81EA;&#x5DF1;&#x8BA1;&#x7B97;
+    def getMD5(str):
+        hl = hashlib.md5()
+        hl.update(str.encode(encoding=&apos;utf-8&apos;))
+        md5 = hl.hexdigest()
+        return md5
+
+    username = &apos;cdrapi&apos;
+    password = &apos;cdrapi123&apos;
+    realm = &apos;passwd&apos;
+    url_top = &apos;https://192.168.93.46:8443&apos;
+    if len(sys.argv) &gt;= 2:
+        url_top = sys.argv[1]
+    #url = &apos;https://192.168.124.63:8443/pmsapi?format=json&apos;
+
+
+    #url = getURLall(url_top, format, token, data)
+    url = url_top + &quot;/cdrapi?fromat=xml&quot;
+
+
+    auth = urllib2.HTTPDigestAuthHandler()
+    auth.add_password(realm,url_top,username,password)
+
+    opener = urllib2.build_opener(auth)  
+    urllib2.install_opener(opener)  
+
+    #ssl._create_default_https_context = ssl._create_unverified_context #for ptyhon 2.7 or high
+    res_data = urllib2.urlopen(url)  
+    res = res_data.read()  
+    print res
+</code></pre>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="parentheses.html" class="navigation navigation-prev " aria-label="Previous page: python括号匹配">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="python-tools.html" class="navigation navigation-next " aria-label="Next page: python工具(更新中...)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"摘要认证","level":"2.2","depth":1,"next":{"title":"python工具(更新中...)","level":"2.3","depth":1,"path":"python/python-tools.md","ref":"python/python-tools.md","articles":[]},"previous":{"title":"python括号匹配","level":"2.1","depth":1,"path":"python/parentheses.md","ref":"python/parentheses.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"python/digest-auth.md","mtime":"2018-10-29T01:44:37.166Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

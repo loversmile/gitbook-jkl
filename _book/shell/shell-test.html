@@ -1,0 +1,355 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Linux shell 的 test 命令用法详解 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="水泡泡">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../python/parentheses.html" />
+    
+    
+    <link rel="prev" href="shell-color.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">shell</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="shell-color.html">
+            
+                <a href="shell-color.html">
+            
+                    
+                    shell文本颜色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="shell-test.html">
+            
+                <a href="shell-test.html">
+            
+                    
+                    Linux shell 的 test 命令用法详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">python</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../python/parentheses.html">
+            
+                <a href="../python/parentheses.html">
+            
+                    
+                    python括号匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../python/digest-auth.html">
+            
+                <a href="../python/digest-auth.html">
+            
+                    
+                    摘要认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../python/python-tools.html">
+            
+                <a href="../python/python-tools.html">
+            
+                    
+                    python工具(更新中...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SIP</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../SIP/rport.html">
+            
+                <a href="../SIP/rport.html">
+            
+                    
+                    rport
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Linux shell 的 test 命令用法详解</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x57FA;&#x672C;&#x683C;&#x5F0F;&#xFF1A;">&#x57FA;&#x672C;&#x683C;&#x5F0F;&#xFF1A;</h2>
+<p>test expression<br>expression&#x4E3A;test&#x547D;&#x4EE4;&#x6784;&#x9020;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;<br>&#x8FD9;&#x91CC;expression&#x662F;test&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x7684;&#x4EFB;&#x4F55;&#x6709;&#x6548;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x8BE5;&#x7B80;&#x5316;&#x683C;&#x5F0F;&#x5C06;&#x662F;&#x8BFB;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x8E2B;&#x89C1;&#x7684;&#x6700;&#x5E38;&#x7528;&#x683C;&#x5F0F;<br>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;<br>test&#x547D;&#x4EE4;&#x6216;&#x8005;&#x8FD4;&#x56DE;0(&#x771F;) &#x6216;&#x8005;&#x8FD4;&#x56DE;1(&#x5047;).  </p>
+<h2 id="test&#x53EF;&#x7406;&#x89E3;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7C7B;&#x578B;&#x5206;&#x4E3A;&#x56DB;&#x7C7B;&#xFF1A;">test&#x53EF;&#x7406;&#x89E3;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7C7B;&#x578B;&#x5206;&#x4E3A;&#x56DB;&#x7C7B;&#xFF1A;</h2>
+<ul>
+<li>&#x8868;&#x8FBE;&#x5F0F;&#x5224;&#x65AD;</li>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;</li>
+<li>&#x6570;&#x5B57;&#x6BD4;&#x8F83;</li>
+<li>&#x6587;&#x4EF6;&#x6BD4;&#x8F83;</li>
+</ul>
+<h2 id="1-&#x5224;&#x65AD;&#x8868;&#x8FBE;&#x5F0F;">1) &#x5224;&#x65AD;&#x8868;&#x8FBE;&#x5F0F;</h2>
+<p>if test  (&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;&#x771F;)<br>if test !&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;&#x5047;<br>test &#x8868;&#x8FBE;&#x5F0F;1 &#x2013;a &#x8868;&#x8FBE;&#x5F0F; 2                   &#x4E24;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x4E3A;&#x771F;<br>test &#x8868;&#x8FBE;&#x5F0F;1 &#x2013;o &#x8868;&#x8FBE;&#x5F0F;2                    &#x4E24;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x6709;&#x4E00;&#x4E2A;&#x4E3A;&#x771F;  </p>
+<h2 id="2-&#x5224;&#x65AD;&#x5B57;&#x7B26;&#x4E32;">2) &#x5224;&#x65AD;&#x5B57;&#x7B26;&#x4E32;</h2>
+<p>test &#x2013;n &#x5B57;&#x7B26;&#x4E32;                             &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x975E;&#x96F6;<br>test &#x2013;z &#x5B57;&#x7B26;&#x4E32;                             &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;<br>test &#x5B57;&#x7B26;&#x4E32;1&#xFF1D;&#x5B57;&#x7B26;&#x4E32; 2                     &#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x7B49;<br>test &#x5B57;&#x7B26;&#x4E32;1 !&#xFF1D;&#x5B57;&#x7B26;&#x4E32;2                    &#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x7B49;  </p>
+<h2 id="3-&#x5224;&#x65AD;&#x6574;&#x6570;">3) &#x5224;&#x65AD;&#x6574;&#x6570;</h2>
+<p>test &#x6574;&#x6570;1 &#x2013;eq &#x6574;&#x6570;2                       &#x6574;&#x6570;&#x76F8;&#x7B49;<br>test &#x6574;&#x6570;1 &#x2013;ge &#x6574;&#x6570;2                       &#x6574;&#x6570;1&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x6574;&#x6570;2<br>test &#x6574;&#x6570;1 &#x2013;gt &#x6574;&#x6570; 2                      &#x6574;&#x6570;1&#x5927;&#x4E8E;&#x6574;&#x6570;2<br>test &#x6574;&#x6570;1 &#x2013;le &#x6574;&#x6570; 2                      &#x6574;&#x6570;1&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#x6574;&#x6570;2<br>test &#x6574;&#x6570;1 &#x2013;lt &#x6574;&#x6570; 2                      &#x6574;&#x6570;1&#x5C0F;&#x4E8E;&#x6574;&#x6570;2<br>test &#x6574;&#x6570;1 &#x2013;ne &#x6574;&#x6570; 2                      &#x6574;&#x6570;1&#x4E0D;&#x7B49;&#x4E8E;&#x6574;&#x6570;2  </p>
+<h2 id="4-&#x5224;&#x65AD;&#x6587;&#x4EF6;">4) &#x5224;&#x65AD;&#x6587;&#x4EF6;</h2>
+<p>test  File1 &#x2013;ef  File2                            &#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x5177;&#x6709;&#x540C;&#x6837;&#x7684;&#x8BBE;&#x5907;&#x53F7;&#x548C;i&#x7ED3;&#x70B9;&#x53F7;<br>test  File1 &#x2013;nt  File2                            &#x6587;&#x4EF6;1&#x6BD4;&#x6587;&#x4EF6;2 &#x65B0;<br>test  File1 &#x2013;ot  File2                            &#x6587;&#x4EF6;1&#x6BD4;&#x6587;&#x4EF6;2 &#x65E7;<br>test &#x2013;b File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x5757;&#x8BBE;&#x5907;&#x6587;&#x4EF6;<br>test &#x2013;c File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#x6587;&#x4EF6;<br>test &#x2013;d File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x76EE;&#x5F55;<br>test &#x2013;e File            &#x6587;&#x4EF6;&#x5B58;&#x5728;<br>test &#x2013;f File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x6B63;&#x89C4;&#x6587;&#x4EF6;<br>test &#x2013;g File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x8BBE;&#x7F6E;&#x4E86;&#x7EC4;ID<br>test &#x2013;G File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x5C5E;&#x4E8E;&#x6709;&#x6548;&#x7EC4;ID<br>test &#x2013;h File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#xFF08;&#x540C;-L&#xFF09; 
+test &#x2013;k File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x8BBE;&#x7F6E;&#x4E86;sticky&#x4F4D;<br>test &#x2013;b File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x5757;&#x8BBE;&#x5907;&#x6587;&#x4EF6;<br>test &#x2013;L File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#xFF08;&#x540C;-h&#xFF09; 
+test &#x2013;o File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x5C5E;&#x4E8E;&#x6709;&#x6548;&#x7528;&#x6237;ID<br>test &#x2013;p File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x7BA1;&#x9053;<br>test &#x2013;r File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x53EF;&#x8BFB;<br>test &#x2013;s File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;<br>test &#x2013;t FD              &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x6253;&#x5F00;&#x7684;<br>test &#x2013;u File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x8BBE;&#x7F6E;&#x4E86;&#x5B83;&#x7684;set-user-id&#x4F4D;<br>test &#x2013;w File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x53EF;&#x5199;<br>test &#x2013;x File            &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5E76;&#x4E14;&#x53EF;&#x6267;&#x884C;<br>test xxx                &#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x6210; [  xxx  ] &#x7684;&#x5F62;&#x5F0F;.<br><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5728;&#x4F7F;&#x7528;&quot;[&quot;&#x7B80;&#x5199;test&#x65F6;&#xFF0C;&#x5DE6;&#x4E2D;&#x62EC;&#x53F7;&#x540E;&#x9762;&#x7684;&#x7A7A;&#x683C;&#x548C;&#x53F3;&#x62EC;&#x53F7;&#x524D;&#x9762;&#x7684;<strong>&#x7A7A;&#x683C;&#x662F;&#x5FC5;&#x9700;&#x7684;</strong>&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7A7A;&#x683C;&#xFF0C;Shell&#x4E0D;&#x53EF;&#x80FD;&#x8FA8;&#x522B;&#x8868;&#x8FBE;&#x5F0F;&#x4F55;&#x65F6;&#x5F00;&#x59CB;&#x4F55;&#x65F6;&#x7ED3;&#x675F;&#xFF0E;<br>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;<br>    test option file<br>&#x53EF;&#x4EE5;&#x5168;&#x90E8;&#x6539;&#x5199;&#x6210;&#xFF1A;<br>    [ option file ]<br>&#x4F8B;&#x5982;:<br>    test &#x2013;w File<br>&#x6539;&#x5199;&#x6210;<br>    [ &#x2013;w File ] </p>
+<h2 id="&#x3010;&#x793A;&#x4F8B;&#x3011;">&#x3010;&#x793A;&#x4F8B;&#x3011;</h2>
+<p>//&#x5224;&#x65AD;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E0D;&#x7A7A;&#x5219;&#x6253;&#x5370;</p>
+<pre><code class="lang-shell">if test -n &quot;$1&quot;  
+then  
+    echo &quot;$1&quot;
+fi
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#xFF0C;&#x653E;&#x5230;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> test -n <span class="hljs-string">&quot;$1&quot;</span>
+then
+    echo <span class="hljs-string">&quot;$1&quot;</span>
+fi
+&#x6267;&#x884C;
+chmod +x test.sh
+./test.sh www.linuxpig.com
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="shell-color.html" class="navigation navigation-prev " aria-label="Previous page: shell文本颜色">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../python/parentheses.html" class="navigation navigation-next " aria-label="Next page: python括号匹配">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Linux shell 的 test 命令用法详解","level":"1.3","depth":1,"next":{"title":"python括号匹配","level":"2.1","depth":1,"path":"python/parentheses.md","ref":"python/parentheses.md","articles":[]},"previous":{"title":"shell文本颜色","level":"1.2","depth":1,"path":"shell/shell-color.md","ref":"shell/shell-color.md","articles":[]},"dir":"ltr"},"config":{"plugins":["etoc","theme-comscore","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"etoc":{"h2lb":3,"header":1,"maxdepth":4,"mindepth":3,"notoc":false},"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"水泡泡","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"水泡泡的testbook"},"file":{"path":"shell/shell-test.md","mtime":"2018-10-28T01:22:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T03:17:27.836Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
