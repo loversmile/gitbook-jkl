@@ -24,6 +24,7 @@
 
 ## Asterisk
 * [对比asterisk 和 freeswitch](asterisk/compare-ast-fs.md)
+* [DialPlan](asterisk/dialplan.md)
 
 ## Network
 * [怎样理解socket的实现机制](network/socket-realize.md)
