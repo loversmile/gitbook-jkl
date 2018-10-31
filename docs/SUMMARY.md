@@ -1,10 +1,14 @@
 # JKL
 
 ## shell
-
 * [shell文本颜色](shell/shell-color.md)
 * [Linux shell 的 test 命令用法详解](shell/shell-test.md)
 * [有用的网站](shell/website.md)
+
+## C/C++
+* [new与malloc十点区别](C/new-malloc.md)
+* [聊一聊NULL指针、零指针、野指针](C/pointer-null.md)
+
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
