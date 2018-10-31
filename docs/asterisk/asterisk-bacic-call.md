@@ -1,0 +1,49 @@
+## asterisk基本呼叫流程
+
+从内核的角度去分析问题时，弄清楚呼叫流程是非常关键的，只有理清了呼叫流程，才能从流程的各个环节细节中分析出问题所在。
+
+Asterisk所有功能都是基于函数调用的模式，呼叫流程也不例外。因此如何从一团乱麻似的内核函数调用中理出函数调用执行路线，是解读呼叫流程的关键。
+
+所有呼叫都跟astersisk的channel有关。这路通话都包含一个incoming连接和一个outbound连接。每个电话都是通过对应 的channel程序建立起来的，比如Chan_sip,Chan_zap,Chan_iax2等等。每一类的channel，都拥有自己私有的 channel数据结构，例如chan_sip的struct sip_pvt结构，这些私有的结构从属于一个通用的Asterisk通道数据结构中，具体定义在channel.h的struct ast_channel中。
+
+下图是asterisk 的呼叫流程图：
+
+我们以sip的呼叫过程为例来描述，其他channel的呼叫过程基本类似。
+
+Astersik下注册的sip用户主动发起一个呼叫的函数调用过程(incoming)如下：
+
+```
+	do_monitor->sipsock_read->handle_request->handle_request_invite->
+	sip_new/ast_pbx_start->pbx_thread->__ast_pbx_run->
+	ast_spawn_extension->pbx_extension_helper->
+	pbx_exec->执行dialplan
+```
+
+当Chan_sip模块被加载时，会启动一个独立的监听线程do_monitor，不断侦听sip端口上的外部消息；
+
+当sip用户拨叫被叫号码后，chan_sip的do_monitor调用sipsock_read函数，在sip端口收到invite消息，然后就调用handle_request和handle_request_invite进行处理。
+
+在handle_request_invite中，首先解析invite消息，对该sip用户的业务属性分析，确认被叫可达，然后就调用sip_new申请channel资源，并调用ast_pbx_start函数启动一个pbx_thread线程来专门处理该呼叫。
+
+pbx_thread线程调用__ast_pbx_run。
+
+__ast_pbx_run是一个衔接dialplan和内核的关键函数，它首先调用ast_exists_extension函数，根据分机号码 的context属性，匹配到对应的dialplan；然后进入一个for死循环，逐条执行dialplan对应的context中的语句。
+
+pbx_extension_helper函数调用pbx_extension_helper，在pbx_extension_helper中调用 pbx_find_extension找到对应的context后，通过verbose打印dialplan执行语句“Executing ……”，同时调用pbx_exec执行该dialplan。执行到dial语句呼叫被叫。
+
+在等待被叫接通的过程中，完成媒体协商过程，向主叫发送180、200OK消息接通呼叫。
+
+当其他用户呼叫asterisk的sip用户时，函数调用过程（outbound）如下：
+```
+	Dial->dial_exec->dial_exec_full->ast_request/ast_call/wait_for_answer/ ast_bridge_call
+```
+
+呼叫执行到dial时，pbx_exec调用application dial的接口函数dial_exec，dial_exec调用dial_exec_full。
+
+在dial_exec_full中，首先调用ast_request，在ast_request调用chan_sip对应的回调函数 sip_request_call为该被叫sip用户申请channel资源。然后调用ast_call，在ast_call中调用chan_sip对应 的回调函数sip_call向被叫发送INVITE消息，呼叫被叫SIP用户。
+
+然后该呼叫线程会调用wait_for_answer等待被叫接通。
+
+在呼叫接通后，也即wait_for_answer函数返回，在dial_exec_full中调用ast_bridge_call桥接媒体，这样呼叫就正式接通了。
+
+当chan_sip的侦听线程接收到BYE消息，则调用handle_request_bye找到相应的channel，执行hangup释放呼叫。

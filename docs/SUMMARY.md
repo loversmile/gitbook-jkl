@@ -7,6 +7,7 @@
 * [有用的网站](shell/website.md)
 
 ## python
+* [python中文注释报错问题](python/python-chinese.md)
 * [python括号匹配](python/parentheses.md)
 * [摘要认证](python/digest-auth.md)
 * [python工具(更新中...)](python/python-tools.md)
@@ -24,7 +25,9 @@
 
 ## Asterisk
 * [对比asterisk 和 freeswitch](asterisk/compare-ast-fs.md)
+* [asterisk基本呼叫流程](asterisk/asterisk-bacic-call.md)
 * [DialPlan](asterisk/dialplan.md)
+* [通过AMI接口远程控制Asterisk](asterisk/ami-asterisk.md)
 
 ## Network
 * [怎样理解socket的实现机制](network/socket-realize.md)
