@@ -17,6 +17,7 @@
 * [python工具(更新中...)](python/python-tools.md)
 
 ## JAVA
+* [抽象类和接口的区别](java/abstract-interface.md)
 * [员工老板问题来讲callback](java-example/java-callback.md)
 
 ## SIP
