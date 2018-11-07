@@ -25,3 +25,8 @@ PyInstaller-3.2
 ##### pyinstaller 参数
 	查看参数
 	pyinstarller -h
+
+#### ubuntu 
+
+##### 安装pip
+	sudo apt-get install python-pip
