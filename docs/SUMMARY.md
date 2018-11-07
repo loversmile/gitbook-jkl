@@ -5,6 +5,9 @@
 * [Linux shell 的 test 命令用法详解](shell/shell-test.md)
 * [有用的网站](shell/website.md)
 
+## linux
+* [ubuntu系统编辑器要怎么更换默认为vim](linux/ubuntu-use-vim.md)
+
 ## C/C++
 * [new与malloc十点区别](C/new-malloc.md)
 * [聊一聊NULL指针、零指针、野指针](C/pointer-null.md)
@@ -37,6 +40,11 @@
 * [DialPlan](asterisk/dialplan.md)
 * [通过AMI接口远程控制Asterisk](asterisk/ami-asterisk.md)
 
+## FreeSwitch
+* [安装FreeSwitch](freeswitch/install.md)
+
 ## Network
 * [怎样理解socket的实现机制](network/socket-realize.md)
+* [怎样去理解Linux阻塞与非阻塞，同步与异步?](network/block.md)
+* [Linux的5种I/O模型](network/io.md)
 * [IO多路复用之select、poll、epoll详解](network/selece-poll.md)
