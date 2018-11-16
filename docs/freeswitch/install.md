@@ -314,3 +314,97 @@ Hold（MOH） [7] 。
 
 	make cd-sounds-install
 	make cd-moh-install
+
+### 其他一些模块的安装
+
+以上是默认配置的freeswitch，有些模块是没有安装和加载的，要使用功能就要单独编译加载，需要把moduels.conf里面的注释去掉
+
+比如，libsndfile不支持的声音文件则由其他模块实现的。如mod_shout模块实现了对MP3文件的支持。该模块默认
+是不编译的，可以在源代码目录中使用如下命令编译安装：
+
+	make mod_shout-install
+
+然后，在FreesSWITCH中使用下列命令加载该模块：
+
+	freeswitch> load mod_shout
+
+如果要freeswitch 启动的时候就加载模块，可以修改
+
+	autoload_configs/modules.conf.xml 
+	将 <!--<load module="mod_shout"/>-->
+	
+注释去掉，就可以在启动的时候加载，其他模块的配置一样。
+
+另外有些模块虽然没有加载，但是已经make install过了，这样值需要加载就可以了，比如
+
+	mod_xml_rpc
+
+该模块是默认编译的，所以只要加载就好。
+
+该模块主要是用来使用 FreeSWITCH Portal 的，与此同时，你加载了 mod_xml_rpc 之后，配置文件是
+
+	autoload_configs/xml_rpc.conf.xml
+
+里面配置了登录的用户名和密码，并且可以支持 websocket，需要配置
+
+	<param name="enable-websocket" value="true"/>
+
+#### 问题
+
+不过我好像遇到一个问题，就是按照上面的方法不成功， make mod_shout-install ， 然后安装了
+
+	sudo apt-get install libshout3-dev
+	sudo apt-get install libmpg123-dev
+	sudo apt-get install libmp3lame-dev
+
+还是不行
+
+最后我重新./configure 一下，然后进到模块相关的目录，make && make install  然后成功了
+
+安装 mod_flite 的时候，报错
+
+	mod_flite.c:34:25: fatal error: flite/flite.h: 没有那个文件或目录
+
+通过下载库的方式解决
+
+	git clone https://freeswitch.org/stash/scm/sd/libflite.git
+ 	cd libflite/
+ 	./configure
+	make
+	sudo make install
+
+进入 flite 模块的源码目录
+
+	cd freeswitch-1.8.2/src/mod/asr_tts/mod_flite
+    make
+    sudo make install
+
+load的时候
+
+	2018-11-15 13:58:13.055324 [CRIT] switch_loadable_module.c:1522 Error Loading module /usr/local/freeswitch/mod/mod_flite.so
+	**/usr/local/freeswitch/mod/mod_flite.so: undefined symbol: register_cmu_us_slt**
+
+网上的方法
+	
+	git clone https://freeswitch.org/stash/scm/sd/libflite.git
+	cd libflite/
+	./configure --enable-pic --disable-static --enable-shared
+	make
+	sudo make install
+	sudo cp /usr/local/lib/pkgconfig/flite.pc /usr/lib64/pkgconfig
+	我编译出来没有 flite.pc
+
+	find libflite.so.1 文件在哪个路径，然后将里面的全部文件拷贝到lib64中
+	例如
+	*/libs/libflite/build/x86_64-linux-gnu/lib/* 
+	里面的全部文件拷贝到/lib64中
+	so 我拷贝了还是不行
+
+不行
+
+
+###
+
+语言下载地址
+
+	https://freeswitch.org/stash/projects/FS/repos/freeswitch-sounds/browse
