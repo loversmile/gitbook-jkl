@@ -21,6 +21,7 @@
 
 ## JAVA
 * [抽象类和接口的区别](java/abstract-interface.md)
+* [日志的简单入门](java/java-logger.md)
 * [员工老板问题来讲callback](java-example/java-callback.md)
 
 ## SIP
