@@ -11,6 +11,7 @@
 ## C/C++
 * [new与malloc十点区别](C/new-malloc.md)
 * [聊一聊NULL指针、零指针、野指针](C/pointer-null.md)
+* [C++中的inline用法](C/inline.md)
 
 
 ## python
