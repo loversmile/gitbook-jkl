@@ -1,7 +1,10 @@
+## ubuntu samba 配置
+
+打开配置文件编辑
 
 	vi /etc/samba/smb.conf 
-	[Todo]
-	    path = /home/jklou/Todo
+	[Todo]  ； 共享名
+	    path = /home/jklou/Todo   ； 共享目录
 	    writeable = yes
 	;   browseable = yes
 	    valid users = jklou 

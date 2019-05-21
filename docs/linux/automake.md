@@ -1,5 +1,5 @@
 
-##automake
+##automake 自动生成 makefile
 
 对于一般的linux下面的工程，我们会简单的手写一些Makefile，但是如果工程比较大，文件比较多，就需要使用自动的工具来帮忙生成Makefile，我们可以使用 autoscan; aclocal; autoconf; autoheader; automake --add-missing; ./configure; make; 等操作来生成
 

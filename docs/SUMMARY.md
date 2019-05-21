@@ -7,6 +7,11 @@
 
 ## linux
 * [ubuntu系统编辑器要怎么更换默认为vim](linux/ubuntu-use-vim.md)
+* [ubuntu系统编samba简单配置](linux/samba.md)
+* [浅谈Linux下文件链接](linux/link.md)
+* [crontab命令](linux/crontab.md)
+* [apache2配置摘要认证](linux/apache2_http_auth.md)
+* [自动生成 makefile](linux/automake.md)
 
 ## C/C++
 * [new与malloc十点区别](C/new-malloc.md)
@@ -50,3 +55,6 @@
 * [怎样去理解Linux阻塞与非阻塞，同步与异步?](network/block.md)
 * [Linux的5种I/O模型](network/io.md)
 * [IO多路复用之select、poll、epoll详解](network/selece-poll.md)
+
+## Docker
+* [Docker 安装](docker/docker-install.md)

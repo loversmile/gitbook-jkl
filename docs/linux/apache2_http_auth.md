@@ -1,5 +1,4 @@
-https://blog.csdn.net/alexander_phper/article/details/52242474
-
+## apache2配置摘要认证
 
 找到http的配置文件，增加要添加用户密码的目录
 
@@ -43,4 +42,6 @@ Digest 认证
 	AuthUserFile  /var/www/html/pwd/.htpasswd
 	require user user
 
-htdigest -c /var/www/html/digest/.htpasswd "digestRealm" userd                   
+htdigest -c /var/www/html/digest/.htpasswd "digestRealm" userd
+
+参考自 https://blog.csdn.net/alexander_phper/article/details/52242474                   
