@@ -63,7 +63,50 @@
 
 继续按提示来，这次选择了加参数
 
-	 ./configure --disable-core-libedit-support
+	 # ./configure --disable-core-libedit-support
+
+	sudo apt-get install libedit-dev
+
+	making all mod_signalwire
+	make[4]: Entering directory `/usr/local/src/freeswitch/src/mod/applications/mod_signalwire'
+	Makefile:916: *** You must install libks to build mod_signalwire.  Stop.
+	make[4]: Leaving directory `/usr/local/src/freeswitch/src/mod/applications/mod_signalwire'
+	make[3]: *** [mod_signalwire-all] Error 1
+	根据报错可以看出需要安装需要安装 libks 和 signalwire-c，安装libks前需要先安装cmake。
+
+
+	
+	cd /usr/local/src
+	wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz
+	tar -zxvf cmake-3.13.3.tar.gz
+	cd cmake-3.13.3 
+	./bootstrap
+	make
+	make install
+
+	安装 libks
+
+
+	cd /usr/local/src
+	git clone https://github.com/signalwire/libks.git
+	cd libks
+	cmake .
+	make
+	make install
+
+	cp /usr/lib/pkgconfig/libks.pc /usr/lib64/pkgconfig/   #这个比较坑爹，不然还是还找不到libks模块
+
+	安装signalwire-c
+
+
+	cd /usr/local/src
+	git clone https://github.com/signalwire/signalwire-c.git
+	cd signalwire-c
+	cmake .
+	make
+	make install
+	cp /usr/local/lib/pkgconfig/*.pc /usr/lib64/pkgconfig/
+	cp -f /usr/local/lib/* /usr/lib64/
 
 这次成功了，然后执行install
 

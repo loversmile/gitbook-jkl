@@ -30,3 +30,10 @@ PyInstaller-3.2
 
 ##### 安装pip
 	sudo apt-get install python-pip
+
+##### 安装mysql
+	https://pypi.org/simple/mysql-connector-python/
+	https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001391435131816c6a377e100ec4d43b3fc9145f3bb8056000
+
+###### Audio Fingerprinting with Python and Numpy
+	https://willdrevo.com/fingerprinting-and-audio-recognition-with-python/
