@@ -73,5 +73,15 @@
 
 输入```git push origin master```即可解决问题
 
+#### Out of memory
+
+    remote: Counting objects: 101, done
+    remote: Finding sources: 100% (89/89)
+    fatal: Out of memory, malloc failed (tried to allocate 6317916534 bytes)
+    fatal: unpack-objects failed
+
+    git config pack.windowMemory 10m
+    git config pack.packSizeLimit 20m
+    git repack -a -d
 
 　
