@@ -18,6 +18,8 @@
 * [聊一聊NULL指针、零指针、野指针](C/pointer-null.md)
 * [C++中的inline用法](C/inline.md)
 
+## C++设计模式
+* [工厂模式--简单工厂模式](CPP/design/factory-simple.md)
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
