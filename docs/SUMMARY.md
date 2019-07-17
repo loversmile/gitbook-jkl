@@ -19,7 +19,9 @@
 * [C++中的inline用法](C/inline.md)
 
 ## C++设计模式
-* [工厂模式--简单工厂模式](CPP/design/factory-simple.md)
+* [工厂模式--简单工厂模式](CPP/design/factory-simple.md) 
+* [工厂模式--工厂方法模式](CPP/design/factory.md)
+* [工厂模式--抽象工厂模式](CPP/design/abstract.md)
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
