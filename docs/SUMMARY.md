@@ -22,6 +22,9 @@
 * [工厂模式--简单工厂模式](CPP/design/factory-simple.md) 
 * [工厂模式--工厂方法模式](CPP/design/factory.md)
 * [工厂模式--抽象工厂模式](CPP/design/abstract.md)
+* [策略模式--传统策略模式](CPP/design/traditional-strategy.md)
+* [适配器模式--复合适配器模式](CPP/design/composite-adapter.md)
+* [适配器模式--继承实现适配器模式](CPP/design/inherit-adapter.md)
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
