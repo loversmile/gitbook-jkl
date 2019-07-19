@@ -25,6 +25,8 @@
 * [策略模式--传统策略模式](CPP/design/traditional-strategy.md)
 * [适配器模式--复合适配器模式](CPP/design/composite-adapter.md)
 * [适配器模式--继承实现适配器模式](CPP/design/inherit-adapter.md)
+* [单例模式--饿汉模式](CPP/design/singleton-hungry.md)
+* [单例模式--懒汉模式](CPP/design/singleton-lazy.md)
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
