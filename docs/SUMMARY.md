@@ -27,7 +27,8 @@
 * [适配器模式--继承实现适配器模式](CPP/design/inherit-adapter.md)
 * [单例模式--饿汉模式](CPP/design/singleton-hungry.md)
 * [单例模式--懒汉模式](CPP/design/singleton-lazy.md)
-* [设计模式--模板模式](CPP/design/template.md)
+* [原型模式](CPP/design/prototype.md)
+* [模板模式](CPP/design/template.md)
 * [建造者模式](CPP/design/builder.md)
 * [外观模式](CPP/design/appearance.md)
 
