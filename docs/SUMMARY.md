@@ -31,6 +31,7 @@
 * [模板模式](CPP/design/template.md)
 * [建造者模式](CPP/design/builder.md)
 * [外观模式](CPP/design/appearance.md)
+* [组合模式](CPP/design/component.md)
 
 ## python
 * [python中文注释报错问题](python/python-chinese.md)
